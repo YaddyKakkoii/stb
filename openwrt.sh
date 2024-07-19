@@ -10,12 +10,10 @@ fi
 if [[ ! -f ${file_bin} ]]; then
     echo -e "sshpass -p "$passwordmu" ssh root@192.168.1.1" > ${file_bin}
     chmod +x $PREFIX/bin/stb
-    ssh root@192.168.1.1 | echo -e "yes\n${passwordmu}\n${passwordmu}\n\nJika bengong tekan Ctrl d kemudian ketik stb lalu enter\n\n"
-    yes
+    ssh root@192.168.1.1 | echo -e "\n\nKetik:\nyes\n${passwordmu}\n${passwordmu}\n\nJika bengong tekan Ctrl d kemudian ketik stb lalu enter\n\n"
 else
     rm -f ${file_bin}
     echo -e "sshpass -p "$passwordmu" ssh root@192.168.1.1" > ${file_bin}
     chmod +x $PREFIX/bin/stb
-    ssh root@192.168.1.1 | echo -e "yes\n${passwordmu}\n${passwordmu}\n\nJika bengong tekan Ctrl d kemudian ketik stb lalu enter\n\n"
-    yes
+    ssh root@192.168.1.1 | echo -e "\n\nKetik:\nyes\n${passwordmu}\n${passwordmu}\n\nJika bengong tekan Ctrl d kemudian ketik stb lalu enter\n\n"
 fi
