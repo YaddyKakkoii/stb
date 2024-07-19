@@ -1,4 +1,6 @@
 #!/data/data/com.termux/files/usr/bin/bash
+type -P sshpass 1>/dev/null
+ [ "$?" -ne 0 ] && echo "Utillity 'sshpass' not found, installing" && pkg install sshpass
 clear
 function loginwrt(){ ssh root@192.168.1.1; };
 file_bin="/data/data/com.termux/files/usr/bin/stb"
