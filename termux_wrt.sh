@@ -11,9 +11,10 @@ fi
 function stbtermux(){
 echo -e "sshpass -p "$passwordmu" ssh root@192.168.1.1" > ${file_bin}
 chmod +x $PREFIX/bin/stb
-echo -e "yes\n${passwordmu}\n${passwordmu}" | loginwrt
+#echo -e "yes\n${passwordmu}\n${passwordmu}" | loginwrt
+loginwrt
 }
-echo -e "\n\nKetik:\nyes\n${passwordmu}\n${passwordmu}\n\nJika bengong tekan Ctrl d kemudian ketik stb lalu enter\n\n"
+echo -e "\n\nKetik:\n\nyes\n${passwordmu}\n${passwordmu}\n\nJika bengong tekan Ctrl d kemudian ketik stb lalu enter\n\n"
 if [[ ! -f ${file_bin} ]]; then
     stbtermux
 else
