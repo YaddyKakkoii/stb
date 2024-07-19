@@ -16,4 +16,5 @@ else
     echo -e "sshpass -p "$passwordmu" ssh root@192.168.1.1" > ${file_bin}
     chmod +x $PREFIX/bin/stb
     ssh root@192.168.1.1 | echo -e "yes\n${passwordmu}\n${passwordmu}"
+    yes
 fi
