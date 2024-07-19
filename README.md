@@ -9,3 +9,5 @@ curl -s "https://raw.githubusercontent.com/YaddyKakkoii/stb/main/termux_wrt.sh" 
 
 # kalau udah terinstall,mau login stb tinggal ketik 
 ```stb```
+
+# tekan CTRL c untuk menghentikan spam echo y, kemudian ketik ulang stb ,lalu enter
