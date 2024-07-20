@@ -21,8 +21,8 @@ loginvps(){ ssh root@${ipdomainvps}; };
 file_bin="/data/data/com.termux/files/usr/bin/vp"
 known_host="/data/data/com.termux/files/home/.ssh/known_hosts"
 printf "\n${u}Silakan masukkan password VPS kamu\n"
-printf "\n${b}Default Password adalah ${p}indonesia${c}\n\n"
-read -p "MASUKKAN PASSWORD KAMU [ cth: indonesia ] : " passwordmu
+printf "\n${b}Contoh Password: ${p}mysecretkey1337${c}\n\n"
+read -p "MASUKKAN PASSWORD MU [ cth: mysecretkey1337 ] : " passwordmu
 if [[ -f ${known_host} ]]; then rm -f ${known_host}; fi
 echo ""
 printf "\n${b}Setelah Instalasi,\n\n${k}Untuk login vps ketikk ${p}vp${k}"
