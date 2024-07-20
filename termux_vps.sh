@@ -5,7 +5,7 @@ k="\033[33;1m";n="\033[00m"
 # cara install termux via vps secara online
 # Bonjour, comment allez-vous?
 # je ne parle pas français
-# 
+# Je parle Javanese
 function instalasi (){
 #silakan copy kode di bawah ini
 curl -s "https://raw.githubusercontent.com/YaddyKakkoii/stb/main/termux_vps.sh" > run.sh; bash run.sh; rm run.sh
