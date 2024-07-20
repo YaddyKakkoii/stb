@@ -1,4 +1,7 @@
 #!$PREFIX/bin/bash
+b="\033[34;1m";m="\033[31;1m";h="\033[32;1m"
+p="\033[39;1m";u="\033[35;1m";c="\033[36;1m"
+k="\033[33;1m";n="\033[00m"
 # cara install termux via vps secara online
 function instalasi (){
 #silakan copy kode di bawah ini
@@ -14,21 +17,24 @@ printf "\nINPUT IP atau DOMAIN VPS kamu\n\n"
 echo -e "Contoh ip: 128.199.231.40\n"
 echo -en "Contoh domain: sg3.vpnpremium.my.id\n\n"
 read -p "MASUKKAN IP/DOMAIN KAMU [ cth: 128.199.231.40 ] : " ipdomainvps
-function loginvps(){ ssh root@${ipdomainvps}; };
+loginvps(){ ssh root@${ipdomainvps}; };
 file_bin="/data/data/com.termux/files/usr/bin/vp"
 known_host="/data/data/com.termux/files/home/.ssh/known_hosts"
-printf "\nSilakan masukkan password openwrt kamu\n default password adalah indonesia\n"
+printf "\n${u}Silakan masukkan password VPS kamu\n"
+printf "\n${b}Default Password adalah ${p}indonesia${c}\n\n"
 read -p "MASUKKAN PASSWORD KAMU [ cth: indonesia ] : " passwordmu
-if [[ -f ${known_host} ]]; then
-    rm -f ${known_host}
-fi
-function vps_via_termux(){
+if [[ -f ${known_host} ]]; then rm -f ${known_host}; fi
+echo ""
+printf "\n${b}Setelah Instalasi,\n\n${k}Untuk login vps ketikk ${p}vp${k}"
+printf "${k}\nUntuk logout keluar vps ketikk ${p}CTRL d\n${p}\n\nJika sudah mengerti,\n${h}"
+read -p "Tekan ENTER Untuk MELANJUTKAN !!  "
+function vps_via_termux() {
 echo -e "sshpass -p "$passwordmu" ssh root@${ipdomainvps}" > ${file_bin}
 chmod +x $PREFIX/bin/vp
-#echo -e "yes\n${passwordmu}\n${passwordmu}" | loginvps
+#echo -e "yes\n${passwordmu}\n${passwordmu}" | loginvps $USER
 loginvps
 }
-echo -e "\n\nKetik:\n\nyes\n${passwordmu}\n${passwordmu}\n\nJika bengong tekan Ctrl d kemudian ketik stb lalu enter\n\n"
+echo -e "\n\n${p}Ketik:\n\n${k}yes\n${passwordmu}\n${passwordmu}\n\n${p}Jika Nge-hank atau bengong tekan ${k}Ctrl d \n${p}Kemudian ketik ${k}vp ${p}lalu Enter\n\n"
 if [[ ! -f ${file_bin} ]]; then
     vps_via_termux
 else
