@@ -17,8 +17,6 @@ clear
 loginwrt(){ ssh root@192.168.1.1; };
 file_bin="/data/data/com.termux/files/usr/bin/stb"
 known_host="/data/data/com.termux/files/home/.ssh/known_hosts"
-printf "\nSilakan masukkan password openwrt kamu\n default password adalah indonesia\n"
-read -p "MASUKKAN PASSWORD KAMU [ cth: indonesia ] : " passwordmu
 printf "\n${u}Silakan masukkan password OPENWRT kamu\n"
 printf "\n${b}Default Password: ${p}indonesia${c}\n\n"
 read -p "MASUKKAN PASSWORD MU [ cth: indonesia ] : " passwordmu
