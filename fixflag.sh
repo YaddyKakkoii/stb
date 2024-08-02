@@ -22,6 +22,8 @@ apt install perl -y
 apt install binutils -y
 apt install libarchive
 apt install git
+apt install libandroid-wordexp
+pkg install libandroid-wordexp
 if ! command -v which &> /dev/null; then apt install which -y; fi
     if ! which gawk &> /dev/null; then
         apt install gawk
@@ -31,20 +33,11 @@ type -P curl 1>/dev/null
 [ "$?" -ne 0 ] && echo "Utillity 'curl' not found, installing" && apt install curl -y
 folder_bin=$(which curl | sed 's/curl//g')
 instal_nodejs(){
-if [[ -d /data/data/com.termux/files/usr/bin/ ]]; then
-    folder_bin="/data/data/com.termux/files/usr/bin/"
+    folder_bin="/data/data/com.termuxdata/files/usr/bin/"
     pkg update && pkg upgrade -y
     pkg install nodejs -y
     ln -s ${folder_bin}nodejs ${folder_bin}node
     npm install -g bash-obfuscate
-else
-    folder_bin="/usr/bin/"
-    apt update && apt upgrade -y
-    #apt-get update && apt-get upgrade -y
-    apt install nodejs -y
-    ln -s ${folder_bin}nodejs ${folder_bin}node
-    npm install -g bash-obfuscate
-fi
 }
     if [ $(dpkg-query -W -f='${Status}' shc 2>/dev/null | grep -c "ok installed") -eq 0 ]; then
         echo belum terinstall shc, we will aquire them now. This may take a while.
