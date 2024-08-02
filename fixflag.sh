@@ -1,4 +1,5 @@
 #!/bin/bash
+YDX="https://raw.githubusercontent.com/YaddyKakkoii/stb/main/"
 clear
 tyblue='\e[1;36m'
 NC='\e[0m'
@@ -77,25 +78,27 @@ unzip termuxsharedobject.zip
 chmod +x sharedobject/*
 cd sharedobject
 cp -vf *.so $PREFIX/lib
-pwd
+HOME_PATH="$HOME"
 CURRENT_PATH=`pwd`
-cd $CURRENT_PATH
-if [ -d $CURRENT_PATH/.var ]; then rm -rf $CURRENT_PATH/.var; fi
-    mkdir -p $CURRENT_PATH/.var
-    mkdir -p $CURRENT_PATH/.var/local
-    mkdir -p $CURRENT_PATH/.var/local/sbin
-    mkdir -p $CURRENT_PATH/.var/local/backup
-YDX="https://raw.githubusercontent.com/YaddyKakkoii/stb/main/"
-if [ ! -f $CURRENT_PATH/.var/local/sbin/spiner ]; then
-    wget -qO $CURRENT_PATH/.var/local/sbin/spiner "${YDX}spiner.sh"
-    chmod 777 $CURRENT_PATH/.var/local/sbin/spiner
+function check_dir(){
+echo "HOME DIR: $HOME_PATH"
+echo "CURRENT DIR: $CURRENT_PATH"
+}
+if [ -d $HOME/.var ]; then rm -rf $HOME/.var; fi
+    mkdir -p $HOME/.var
+    mkdir -p $HOME/.var/local
+    mkdir -p $HOME/.var/local/sbin
+    mkdir -p $HOME/.var/local/backup
+if [ ! -f $HOME/.var/local/sbin/spiner ]; then
+    wget -qO $HOME/.var/local/sbin/spiner "${YDX}spiner.sh"
+    chmod 777 $HOME/.var/local/sbin/spiner
 else
-    rm -rf $CURRENT_PATH/.var/local/sbin/spiner
-    wget -qO $CURRENT_PATH/.var/local/sbin/spiner "${YDX}spiner.sh"
-    chmod 777 $CURRENT_PATH/.var/local/sbin/spiner
+    rm -rf $HOME/.var/local/sbin/spiner
+    wget -qO $HOME/.var/local/sbin/spiner "${YDX}spiner.sh"
+    chmod 777 $HOME/.var/local/sbin/spiner
 fi
-source $CURRENT_PATH/.var/local/sbin/spiner
-clear
+source $HOME/.var/local/sbin/spiner
+check_dir
 start_spinner " ⌛ Cleaning trash file.....☕"
 [ -f termuxsharedobject.zip ] && rm termuxsharedobject.zip
 rm -rf sharedobject
@@ -103,4 +106,6 @@ stop_spinner
 printf "\n ✓ trash Cleaned.....\n"
 #exit 0
 cd
+check_dir
 echo ""
+rm fixflag.sh
