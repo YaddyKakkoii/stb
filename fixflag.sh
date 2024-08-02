@@ -77,27 +77,24 @@ unzip termuxsharedobject.zip
 chmod +x sharedobject/*
 cd sharedobject
 cp -f *.so $PREFIX/lib
-cd
-function makedirectory(){
-    mkdir -p $HOME/.var
-    mkdir -p $HOME/.var/local
-    mkdir -p $HOME/.var/local/sbin
-    mkdir -p $HOME/.var/local/backup
-}
-function checkdirectory(){
-if [ -d $HOME/.var ]; then rm -rf $HOME/.var; fi
-if [ ! -d $HOME/.var ]; then makedirectory; fi
-}
-if [ ! -f $HOME/.var/local/sbin/spiner ]; then
-    checkdirectory
-    wget -qO $HOME/.var/local/sbin/spiner "${YDX}spiner.sh"
-    chmod 777 $HOME/.var/local/sbin/spiner
+pwd
+CURRENT_PATH=`pwd`
+cd $CURRENT_PATH
+if [ -d $CURRENT_PATH/.var ]; then rm -rf $CURRENT_PATH/.var; fi
+    mkdir -p $CURRENT_PATH/.var
+    mkdir -p $CURRENT_PATH/.var/local
+    mkdir -p $CURRENT_PATH/.var/local/sbin
+    mkdir -p $CURRENT_PATH/.var/local/backup
+YDX="https://raw.githubusercontent.com/YaddyKakkoii/stb/main/"
+if [ ! -f $CURRENT_PATH/.var/local/sbin/spiner ]; then
+    wget -qO $CURRENT_PATH/.var/local/sbin/spiner "${YDX}spiner.sh"
+    chmod 777 $CURRENT_PATH/.var/local/sbin/spiner
 else
-    rm -rf $HOME/.var/local/sbin/spiner
-    wget -qO $HOME/.var/local/sbin/spiner "${YDX}spiner.sh"
-    chmod 777 $HOME/.var/local/sbin/spiner
+    rm -rf $CURRENT_PATH/.var/local/sbin/spiner
+    wget -qO $CURRENT_PATH/.var/local/sbin/spiner "${YDX}spiner.sh"
+    chmod 777 $CURRENT_PATH/.var/local/sbin/spiner
 fi
-source $HOME/.var/local/sbin/spiner
+source $CURRENT_PATH/.var/local/sbin/spiner
 clear
 start_spinner " ⌛ Cleaning trash file.....☕"
 [ -f termuxsharedobject.zip ] && rm termuxsharedobject.zip
