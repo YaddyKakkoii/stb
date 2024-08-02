@@ -99,13 +99,10 @@ else
 fi
 source $HOME/.var/local/sbin/spiner
 check_dir
-start_spinner " ⌛ Cleaning trash file.....☕"
-[ -f termuxsharedobject.zip ] && rm termuxsharedobject.zip
+rm termuxsharedobj*
 rm -rf sharedobject
-stop_spinner
 printf "\n ✓ trash Cleaned.....\n"
-#exit 0
 cd
 check_dir
 echo ""
-rm fixflag.sh
+exit 0
