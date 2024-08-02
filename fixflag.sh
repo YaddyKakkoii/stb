@@ -77,9 +77,11 @@ wget "https://raw.githubusercontent.com/YaddyKakkoii/stb/main/termuxsharedobject
 unzip termuxsharedobject.zip
 chmod +x sharedobject/*
 cd sharedobject
+pwd
 cp -vf *.so $PREFIX/lib
 HOME_PATH="$HOME"
-CURRENT_PATH=`pwd`
+#CURRENT_PATH=`pwd`
+CURRENT_PATH=$(pwd)
 function check_dir(){
 echo "HOME DIR: $HOME_PATH"
 echo "CURRENT DIR: $CURRENT_PATH"
@@ -97,12 +99,12 @@ else
     wget -qO $HOME/.var/local/sbin/spiner "${YDX}spiner.sh"
     chmod 777 $HOME/.var/local/sbin/spiner
 fi
-source $HOME/.var/local/sbin/spiner
 check_dir
-rm termuxsharedobj*
+
+cd $HOME
+rm -f termuxsharedobj*
 rm -rf sharedobject
-printf "\n ✓ trash Cleaned.....\n"
-cd
+
 check_dir
 echo ""
 exit 0
