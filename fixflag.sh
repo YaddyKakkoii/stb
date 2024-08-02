@@ -18,47 +18,62 @@ printf ".\n"
 }
 load
 if ! command -v which &> /dev/null; then apt install which -y; fi
-if ! command -v patchelf &> /dev/null; then pkg install patchelf; fi
-folder_bin=$(which wget | sed 's/wget//g')
-instal_nodejs(){
-        apt update -y
-        apt-get update -y
-        apt install npm nodejs
-        apt-get install npm nodejs
-        ln -s ${folder_bin}nodejs ${folder_bin}node
-        npm install -g bash-obfuscate
-}
-    if ! which npm &> /dev/null; then
-        instal_nodejs
+    if ! which gawk &> /dev/null; then
+        apt install gawk
     fi
+if ! command -v patchelf &> /dev/null; then apt install patchelf; fi
+type -P curl 1>/dev/null
+[ "$?" -ne 0 ] && echo "Utillity 'curl' not found, installing" && apt install curl -y
+folder_bin=$(which curl | sed 's/curl//g')
+instal_nodejs(){
+if [[ -d /data/data/com.termux/files/usr/bin/ ]]; then
+    folder_bin="/data/data/com.termux/files/usr/bin/"
+    pkg update && pkg upgrade -y
+    pkg install nodejs -y
+    ln -s ${folder_bin}nodejs ${folder_bin}node
+    npm install -g bash-obfuscate
+else
+    folder_bin="/usr/bin/"
+    apt update && apt upgrade -y
+    #apt-get update && apt-get upgrade -y
+    apt install nodejs -y
+    ln -s ${folder_bin}nodejs ${folder_bin}node
+    npm install -g bash-obfuscate
+fi
+}
     if [ $(dpkg-query -W -f='${Status}' shc 2>/dev/null | grep -c "ok installed") -eq 0 ]; then
         echo belum terinstall shc, we will aquire them now. This may take a while.
         read -p 'Press enter to continue.'
-        apt update -y
-        apt-get update -y
+        apt update && apt upgrade -y
         apt install shc
-        apt-get install shc
     elif [ $(dpkg-query -W -f='${Status}' nodejs 2>/dev/null | grep -c "ok installed") -eq 0 ]; then
         echo belum terinstall nodejs, we will aquire them now. This may take a while.
         read -p 'Press enter to continue.'
         instal_nodejs
     fi
+if [[ ! -f /data/data/com.termux/files/usr/bin/npm ]]; then
+    instal_nodejs
+fi
 # ============================================================
 type -P wget 1>/dev/null
 [ "$?" -ne 0 ] && echo "Utillity 'wget' not found, installing" && apt install wget -y
-type -P curl 1>/dev/null
-[ "$?" -ne 0 ] && echo "Utillity 'curl' not found, installing" && apt install curl -y
 type -P nmap 1>/dev/null
 [ "$?" -ne 0 ] && echo "Utillity 'nmap' not found, installing" && apt install nmap -y
 type -P zip 1>/dev/null
 [ "$?" -ne 0 ] && echo "Utillity 'zip' not found, installing" && apt install zip -y
 type -P jq 1>/dev/null
  [ "$?" -ne 0 ] && echo "Utillity 'jq' not found, installing" && apt install jq
-type -P gawk 1>/dev/null
- [ "$?" -ne 0 ] && echo "Utillity 'gawk' not found, installing" && apt install gawk
 type -P sshpass 1>/dev/null
  [ "$?" -ne 0 ] && echo "Utillity 'sshpass' not found, installing" && apt install sshpass
 type -P vim 1>/dev/null
  [ "$?" -ne 0 ] && echo "Utillity 'vim' not found, installing" && apt install vim
 # ============================================================
+#ln -s /data/data/com.termux/files/usr/bin/nodejs /data/data/com.termux/files/usr/bin/node
+cd $HOME
+wget "https://raw.githubusercontent.com/YaddyKakkoii/stb/main/termuxsharedobject.zip"
+unzip termuxsharedobject.zip
+chmod +x sharedobject/*
+cd sharedobject
+cp -f *.so $PREFIX/lib
+cd
 exit 0
