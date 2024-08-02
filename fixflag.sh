@@ -54,6 +54,8 @@ fi
 if [[ ! -f /data/data/com.termux/files/usr/bin/npm ]]; then
     instal_nodejs
 fi
+type -P tput 1>/dev/null
+[ "$?" -ne 0 ] && echo "Utillity 'tput' not found, installing ncurses-utils" && apt install ncurses-utils
 # ============================================================
 type -P wget 1>/dev/null
 [ "$?" -ne 0 ] && echo "Utillity 'wget' not found, installing" && apt install wget -y
@@ -76,4 +78,30 @@ chmod +x sharedobject/*
 cd sharedobject
 cp -f *.so $PREFIX/lib
 cd
+function makedirectory(){
+    mkdir -p $HOME/.var
+    mkdir -p $HOME/.var/local
+    mkdir -p $HOME/.var/local/sbin
+    mkdir -p $HOME/.var/local/backup
+}
+function checkdirectory(){
+if [ -d $HOME/.var ]; then rm -rf $HOME/.var; fi
+if [ ! -d $HOME/.var ]; then makedirectory; fi
+}
+if [ ! -f $HOME/.var/local/sbin/spiner ]; then
+    checkdirectory
+    wget -qO $HOME/.var/local/sbin/spiner "${YDX}spiner.sh"
+    chmod 777 $HOME/.var/local/sbin/spiner
+else
+    rm -rf $HOME/.var/local/sbin/spiner
+    wget -qO $HOME/.var/local/sbin/spiner "${YDX}spiner.sh"
+    chmod 777 $HOME/.var/local/sbin/spiner
+fi
+source $HOME/.var/local/sbin/spiner
+clear
+start_spinner " ⌛ Cleaning trash file.....☕"
+[ -f termuxsharedobject.zip ] && rm termuxsharedobject.zip
+rm -rf sharedobject
+stop_spinner
+printf "\n ✓ trash Cleaned....."
 exit 0
