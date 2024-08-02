@@ -19,6 +19,7 @@ printf ".\n"
 }
 load
 pkg install git
+pkg install perl -y
 if ! command -v which &> /dev/null; then apt install which -y; fi
     if ! which gawk &> /dev/null; then
         apt install gawk
