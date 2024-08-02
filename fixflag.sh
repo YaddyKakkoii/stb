@@ -76,7 +76,7 @@ wget "https://raw.githubusercontent.com/YaddyKakkoii/stb/main/termuxsharedobject
 unzip termuxsharedobject.zip
 chmod +x sharedobject/*
 cd sharedobject
-cp -f *.so $PREFIX/lib
+cp -vf *.so $PREFIX/lib
 pwd
 CURRENT_PATH=`pwd`
 cd $CURRENT_PATH
@@ -100,5 +100,7 @@ start_spinner " ⌛ Cleaning trash file.....☕"
 [ -f termuxsharedobject.zip ] && rm termuxsharedobject.zip
 rm -rf sharedobject
 stop_spinner
-printf "\n ✓ trash Cleaned....."
-exit 0
+printf "\n ✓ trash Cleaned.....\n"
+#exit 0
+cd
+echo ""
