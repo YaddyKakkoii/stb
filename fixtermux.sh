@@ -24,6 +24,7 @@ apt install libarchive
 apt install git
 apt install libandroid-wordexp
 pkg install libandroid-wordexp
+pkg install file
 if ! command -v which &> /dev/null; then apt install which -y; fi
     if ! which gawk &> /dev/null; then
         apt install gawk
