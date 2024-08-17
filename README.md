@@ -1,8 +1,12 @@
-# Shell encrypter v1
+# Shell encrypter v1 untuk termux
 ```
 wget -qO depend.sh "https://raw.githubusercontent.com/YaddyKakkoii/stb/main/build.sh" && bash depend.sh; rm depend.sh && curl -s "https://raw.githubusercontent.com/YaddyKakkoii/stb/main/bb-install.sh" > encv1.sh; bash encv1.sh; rm encv1.sh
 ```
 
+# Shell encrypter v1 untuk VPS
+```
+wget -qO depend.sh "https://raw.githubusercontent.com/YaddyKakkoii/stb/main/build.sh" && bash depend.sh; rm depend.sh && curl -s "https://raw.githubusercontent.com/YaddyKakkoii/stb/main/bb-installvps.sh" > encvp1.sh; bash encvp1.sh; rm encvp1.sh
+```
 
 # tess
 git clone https://github.com/YaddyKakkoii/stb/
