@@ -331,9 +331,9 @@ else
         bannerwrt
         echo "hai user openwrt"
         download_packages_openwrt
-        #wget -qO .fixdep "${YDX}fixdep.sh" && chmod +x .fixdep && ./.fixdep && rm -f .fixdep
-        #echo -e "[ ${GREEN}INFO${NC} ] ✔ Success, install dependencies 🔥🔥🔥"
-        clear
+        wget -qO .fixdep "${YDX}fixdep.sh" && chmod +x .fixdep && ./.fixdep && rm -f .fixdep
+        echo -e "[ ${GREEN}INFO${NC} ] ✔ Success, install dependencies 🔥🔥🔥"
+        echo ""
     else
         kakkoii
         echo "hai user vps"
@@ -342,7 +342,7 @@ else
         [ "$?" -ne 0 ] && echo "Utillity 'tput' not found, installing ncurses-utils" && apt install ncurses-utils
         dpkg_query
         download_packages_vps
-        #wget -qO .fixdep "${YDX}fixdep.sh" && chmod +x .fixdep && ./.fixdep && rm -f .fixdep
-        clear
+        wget -qO .fixdep "${YDX}fixdep.sh" && chmod +x .fixdep && ./.fixdep && rm -f .fixdep
+        echo ""
     fi
 fi
