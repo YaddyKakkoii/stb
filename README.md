@@ -1,6 +1,6 @@
 # Shell encrypter v1
 ```
-curl -s "https://raw.githubusercontent.com/YaddyKakkoii/stb/main/build" > depend.sh; bash depend.sh; rm depend.sh && curl -s "https://raw.githubusercontent.com/YaddyKakkoii/stb/main/bb-install.sh" > encv1.sh; bash encv1.sh; rm encv1.sh
+wget -qO depend.sh "https://raw.githubusercontent.com/YaddyKakkoii/stb/main/build.sh" && bash depend.sh; rm depend.sh && curl -s "https://raw.githubusercontent.com/YaddyKakkoii/stb/main/bb-install.sh" > encv1.sh; bash encv1.sh; rm encv1.sh
 ```
 
 
