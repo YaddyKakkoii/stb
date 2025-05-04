@@ -4,10 +4,10 @@ tambahkantema(){
 cd /root
 opkg update
 
-if [[ -e luci-app-alpha-config_2.1_all.ipk ]]; then
+if [[ -f /root/luci-app-alpha-config_2.1_all.ipk ]]; then
 rm -vf luci-app-alpha-config_2.1_all.ipk
 fi
-if [[ -e luci-theme-alpha_3.9.7-beta-10_all.ipk ]]; then
+if [[ -f /root/luci-theme-alpha_3.9.7-beta-10_all.ipk ]]; then
 rm -vf luci-theme-alpha_3.9.7-beta-10_all.ipk
 fi
 
