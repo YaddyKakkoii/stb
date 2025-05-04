@@ -14,7 +14,7 @@ fi
 fileconfig="luci-app-alpha-config_2.1_all.ipk"
 filetema="luci-theme-alpha_3.9.7-beta-10_all.ipk"
 
-wget -o /root/$filetema "https://github.com/derisamedia/luci-theme-alpha/releases/download/3.9.7/luci-theme-alpha_3.9.7-beta-10_all.ipk"
+wget "https://github.com/derisamedia/luci-theme-alpha/releases/download/3.9.7/luci-theme-alpha_3.9.7-beta-10_all.ipk"
 if [ $? -eq 0 ]; then
 echo "Unduhan $filetema via wget berhasil"
 chmod +x luci-theme-alpha_3.9.7-beta-10_all.ipk
@@ -29,7 +29,7 @@ echo "Unduhan $filetema via curl gagal, please cek url"
 fi
 fi
 
-wget -o /root/$fileconfig "https://github.com/derisamedia/luci-theme-alpha/releases/download/3.9.7/luci-app-alpha-config_2.1_all.ipk"
+wget "https://github.com/derisamedia/luci-theme-alpha/releases/download/3.9.7/luci-app-alpha-config_2.1_all.ipk"
 if [ $? -eq 0 ]; then
 echo "Unduhan $fileconfig via wget berhasil"
 chmod +x luci-theme-alpha_3.9.7-beta-10_all.ipk
