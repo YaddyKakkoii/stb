@@ -44,6 +44,7 @@ echo "Unduhan $fileconfig via curl gagal, please cek url"
 fi
 fi
 
+chmod 777 luci*
 opkg install luci-theme-alpha_3.9.7-beta-10_all.ipk
 opkg install luci-app-alpha-config_2.1_all.ipk
 
