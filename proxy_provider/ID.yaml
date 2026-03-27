@@ -1,6 +1,6 @@
 # Code By @triadzz kaiden
 proxies:
-- name: ID-TECNO-ZOOM
+- name: ID-TECNO
   server: support.zoom.us
   port: 443
   type: vless
