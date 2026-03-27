@@ -1,0 +1,18 @@
+payload:
+  - IP-CIDR,192.168.1.1/24
+  - IP-CIDR,192.168.8.1/24
+  - IP-CIDR,192.168.0.1/24
+  #> My XL App
+  - DOMAIN-SUFFIX,api.myxl.xlaxiata.co.id
+  - DOMAIN-SUFFIX,xlaxiata-udc.digital-cloud-sin1.medallia.com
+  - DOMAIN-SUFFIX,ciam-rajaampat.xl.co.id
+  - DOMAIN-KEYWORD,xlaxiata
+  - DOMAIN-KEYWORD,xlaxiata2
+  - DOMAIN-KEYWORD,xlaxiata-resources
+  # > My Telkomsel App
+  - DOMAIN-KEYWORD,telkomsel.com
+  - DOMAIN-KEYWORD,prd-idn-telkomsel-dap.timwe.com
+  - DOMAIN-KEYWORD,mobile.useinsider.com
+  - DOMAIN-KEYWORD,webportals.cachefly.net
+#  - DOMAIN-KEYWORD,openai
+#  - DOMAIN-SUFFIX,openai.com
