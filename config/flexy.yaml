@@ -2,14 +2,6 @@
 # code BY Triadz Kaiden
 # ================= PHREAKER ==================
 rule-providers:
-  Playstore:
-    type: file
-    behavior: domain
-    path: "./rule_provider/playstore.yaml"
-  Meta:
-    type: file
-    behavior: domain
-    path: "./rule_provider/meta.yaml"
   Sosmed:
     type: file
     behavior: classical
@@ -22,6 +14,14 @@ rule-providers:
     type: file
     behavior: classical
     path: "./rule_provider/streaming.yaml"
+  Meta:
+    type: file
+    behavior: domain
+    path: "./rule_provider/meta.yaml"
+  Playstore:
+    type: file
+    behavior: domain
+    path: "./rule_provider/playstore.yaml"
   Tiktok:
     type: file
     behavior: classical
@@ -94,7 +94,7 @@ proxy-groups:
   - DIRECT
   url: http://www.gstatic.com/generate_204
   interval: '120'
-- name: SOSMED 📲
+- name: SOSMED
   type: select
   disable-udp: false
   proxies:
@@ -104,7 +104,7 @@ proxy-groups:
   - DIRECT
   url: http://www.gstatic.com/generate_204
   interval: '120'
-- name: STREAMING 📽️
+- name: STREAMING
   type: select
   disable-udp: false
   proxies:
@@ -293,13 +293,13 @@ tun:
 rules:
 - IP-CIDR,198.18.0.1/16,REJECT,no-resolve
 - RULE-SET,Playstore,UMUM 🌏
-- RULE-SET,Meta,SOSMED 📲
-- RULE-SET,Sosmed,SOSMED 📲
-- RULE-SET,Telegram,SOSMED 📲
-- RULE-SET,Whatsapp,SOSMED 📲
-- RULE-SET,Streaming,STREAMING 📽️
-- RULE-SET,Youtube,STREAMING 📽️
-- RULE-SET,Tiktok,STREAMING 📽️
+- RULE-SET,Meta,SOSMED
+- RULE-SET,Sosmed,SOSMED
+- RULE-SET,Streaming,STREAMING
+- RULE-SET,Youtube,STREAMING
+- RULE-SET,Tiktok,STREAMING
+- RULE-SET,Telegram,BANK 🏧
+- RULE-SET,Whatsapp,BANK 🏧
 - RULE-SET,Bank,BANK 🏧
 - RULE-SET,Speedtest,SPEEDTEST 🚀
 - RULE-SET,Reject,REJECT
