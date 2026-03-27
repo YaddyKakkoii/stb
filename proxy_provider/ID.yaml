@@ -1,0 +1,19 @@
+# Code By @triadzz kaiden
+proxies:
+- name: ID-TECNO-ZOOM
+  server: support.zoom.us
+  port: 443
+  type: vless
+  uuid: 1ea57c2e-15e3-400f-a45b-95e6698c59b7
+  alterId: 0
+  cipher: auto
+  tls: true
+  skip-cert-verify: true
+  servername: support.zoom.us.tecno.garudabangsa.web.id
+  network: ws
+  ws-opts:
+    path: /vless
+    headers:
+      Host: support.zoom.us.tecno.garudabangsa.web.id
+  udp: true
+  
