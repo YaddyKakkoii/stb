@@ -1,0 +1,19 @@
+# Yaddy D phreaker 
+proxies:
+- name: SG-NEWMEDIA
+  server: support.zoom.us
+  port: 443
+  type: vmess
+  uuid: 3edf483f-4df2-470f-a5fa-277fe4c2df20
+  alterId: 0
+  cipher: auto
+  tls: true
+  skip-cert-verify: true
+  servername: support.zoom.us.newmedia.garudabangsa.web.id
+  network: ws
+  ws-opts:
+    path: /vmess
+    headers:
+      Host: support.zoom.us.newmedia.garudabangsa.web.id
+  udp: true
+  
